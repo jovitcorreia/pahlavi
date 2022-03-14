@@ -30,6 +30,8 @@ Each challenge will start its own event listener
 
 ### Use
 
+To invite the bot to your server use this [link](https://discord.com/api/oauth2/authorize?client_id=945471676173385728&permissions=35840&scope=bot)
+
 - `.ce` followed by a mention to challenge a user
 - `.mv` on your turn to perform a valid move
 - `.ff` on your turn to surrender
