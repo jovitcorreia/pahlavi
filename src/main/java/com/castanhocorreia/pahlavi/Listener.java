@@ -39,6 +39,7 @@ public class Listener extends ListenerAdapter {
     this.nextPlayer = whitePlayer;
     this.channel = channel;
     this.parent = parent;
+    this.lastMove = LocalDateTime.now();
     send();
   }
 
@@ -87,16 +88,16 @@ public class Listener extends ListenerAdapter {
     LocalDateTime now = LocalDateTime.now();
     if (ChronoUnit.DAYS.between(now, lastMove) <= -2) {
       channel
-              .sendMessage(
-                      String.format(
-                              "The game ended in a win for %s due to %s 's timeout",
-                              nextPlayer.equals(whitePlayer)
-                                      ? blackPlayer.getAsMention()
-                                      : whitePlayer.getAsMention(),
-                              nextPlayer.equals(blackPlayer)
-                                      ? whitePlayer.getAsMention()
-                                      : blackPlayer.getAsMention()))
-              .queue();
+          .sendMessage(
+              String.format(
+                  "The game ended in a win for %s due to %s 's timeout",
+                  nextPlayer.equals(whitePlayer)
+                      ? blackPlayer.getAsMention()
+                      : whitePlayer.getAsMention(),
+                  nextPlayer.equals(blackPlayer)
+                      ? whitePlayer.getAsMention()
+                      : blackPlayer.getAsMention()))
+          .queue();
       kill(event.getJDA());
     }
     if (event.getChannel() == channel && event.getAuthor().equals(nextPlayer)) {

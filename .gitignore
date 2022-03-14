@@ -28,6 +28,7 @@
 /nbdist/
 /nbproject/private/
 HELP.md
+Procfile
 build/
 gradle-app.setting
 system.properties
