@@ -1,6 +1,5 @@
 package com.castanhocorreia.pahlavi;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import net.dv8tion.jda.api.entities.Activity;
@@ -19,8 +18,7 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class Main extends ListenerAdapter {
-  public static final Dotenv env = Dotenv.load();
-  public static final String TOKEN = env.get("TOKEN");
+  public static final String TOKEN = System.getenv("TOKEN");
   public static final String PREFIX = ".";
   public final Set<MessageChannel> rooms = new HashSet<>();
 

@@ -30,4 +30,5 @@
 HELP.md
 build/
 gradle-app.setting
+system.properties
 target/
